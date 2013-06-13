@@ -1,6 +1,32 @@
-<li data-icon="false">
-    <a href="#" data-contact-id="<%= id %>" class="contact">
-	<h2><%= name %></h2>
-	<%= number %>
-    </a>
-</li>
+<div data-role="header">
+    <a href="#sms" data-role="button" data-rel="back" data-icon="back" data-iconpos="notext">Back</a>
+    <h1>Contact Me</h1>
+</div>
+
+<div data-role="content">
+    <div style="text-align:center;margin:10px">
+	I'll like to hear from you.
+
+    <address style="margin:10px">
+	<strong>Ezra Obiwale</strong><br />
+
+	<a href="mailto:ezra.obiwale@gmail.com">ezra.obiwale@gmail.com</a><br />
+	<a href="call:+2348035163756">+234-803-516-3756</a><br />
+	<a href="call:+2348053926767">+234-805-392-6767</a><br />
+    </address>
+    You may also send me an email with this form
+    </div>
+<div class="controlgroup">
+    <label for="name" class="ui-hidden-accessible">Full Name</label>
+    <input type="text" placeholder="Full name" id="email" />
+</div>
+<div class="controlgroup">
+    <label for="email" class="ui-hidden-accessible">Email Address</label>
+    <input type="email" placeholder="Email address" id="email" />
+</div>
+<div class="controlgroup">
+    <label for="message" class="ui-hidden-accessible">Message</label>
+    <textarea placeholder="Message" id="message"></textarea>
+</div>
+<button type="submit">Send</button>
+</div>

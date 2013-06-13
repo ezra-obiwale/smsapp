@@ -2,7 +2,9 @@ var AppRouter = Backbone.Router.extend({
     routes:{
 	"":"sms",
 	"sms" : "sms",
-	"to" : "to"
+	"to" : "to",
+	"about":"about",
+	"contact":"contact"
     },
 
     initialize:function () {
@@ -19,6 +21,14 @@ var AppRouter = Backbone.Router.extend({
 
     to: function() {
 	this.changePage(new ToView());
+    },
+
+    about: function() {
+	this.changePage(new AboutView());
+    },
+
+    contact: function() {
+	this.changePage(new ContactView());
     },
 
     changePage:function (page, options) {
@@ -68,7 +78,8 @@ var AppRouter = Backbone.Router.extend({
 });
 
 $(document).ready(function () {
-    tpl.loadTemplates(["sms", "to", "contact"],
+    tpl.loadTemplates(["sms", "to", "list-contact",
+    "about", "contact"],
 	function () {
 	    app = new AppRouter();
 	    Backbone.history.start();

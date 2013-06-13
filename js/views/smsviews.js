@@ -12,7 +12,7 @@ window.SMSView = Backbone.View.extend({
     events: {
 	"click #menu-a" :"menu",
 	"submit #form":"submit",
-	"click #goto": "to"
+	"click #to": "to"
     },
 
     menu: function(event) {
@@ -22,7 +22,7 @@ window.SMSView = Backbone.View.extend({
     submit: function(event) {
 	event.preventDefault();
 
-	if ($("#name").val() == "" || $("#message").val() == "") {
+	if ($("#to").val() == "" || $("#message").val() == "") {
 	    popAlert("All fields are required");
 	}
 	else {
@@ -32,6 +32,7 @@ window.SMSView = Backbone.View.extend({
 
     to: function(event){
 	event.preventDefault();
+	$("#to").attr("disabled", "disabled");
 	redirect("to");
     }
 });
@@ -78,7 +79,7 @@ window.ContactListView = Backbone.View.extend({
 	_.each(contacts, function (contact) {
 	    var ContactModel = new Backbone.Model();
 
-	    popAlert(JSON.stringify(contact));
+	    popAlert(JSON.stringify(ContactModel));
 //	    var model = user.toJSON();
 //	    model.isFriend = localStorage.getItem("isFriends");
 //
@@ -102,7 +103,7 @@ window.ContactListItemView = Backbone.View.extend({
     tagName:"li",
 
     initialize:function () {
-	this.template = _.template(tpl.get('contact'));
+	this.template = _.template(tpl.get('list-contact'));
     },
 
     render:function (eventName) {
@@ -110,4 +111,22 @@ window.ContactListItemView = Backbone.View.extend({
 	return this;
     }
 
+});
+
+window.AboutView = Backbone.View.extend({
+    render: function() {
+	$(this.el).html(tpl.get("about"));
+	return this;
+    }
+});
+
+window.ContactView = Backbone.View.extend({
+    initialize: function() {
+	this.template = _.template(tpl.get("contact"));
+    },
+
+    render: function() {
+	$(this.el).html(this.template());
+	return this;
+    }
 });
