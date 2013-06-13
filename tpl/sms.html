@@ -1,0 +1,26 @@
+<div data-role="header">
+    <h1>Send SMS</h1>
+    <a href="#sms" class="ui-btn-right ui-icon-nodisc" data-role="button" id="menu-a"
+       data-icon="grid" data-iconpos="notext" data-corners="false" data-shadow="false"
+       data-iconshadow="false">Menu</a>
+    <div class="menu" data-role="navbar" style="display:none">
+	<ul>
+	    <li><a href="#about">About</a></li>
+	    <li><a href="#contact">Contact</a></li>
+	</ul>
+    </div>
+</div>
+
+
+<div data-role="content">
+    <form id="form">
+	<div class="controlgroup">
+	    <label for="to" class="ui-hidden-accessible">To</label>
+	    <input id="to" disabled="disabled" data-inline="true" type="text" name="to" placeholder="To" />
+	    <a href="#to" id="goto" data-role="button" data-inline="true" data-icon="plus" data-iconpos="left">Add Contacts</a>
+	</div>
+	<label for="message" class="ui-hidden-accessible">Your message</label>
+	<textarea id="message" name="message" placeholder="Your message"></textarea>
+	<button type="submit" class="show-page-loading-msg" data-textonly="false" data-textvisible="false" data-msgtext="" data-inline="true">Send</button>
+    </form>
+</div>
