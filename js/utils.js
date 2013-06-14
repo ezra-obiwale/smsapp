@@ -53,7 +53,9 @@ window.popAlert = function(message, title) {
 	if (!title)
 	    title = "Alert";
 
-	navigator.notification.alert("nav: " + message, null, title, 'OK');
+	navigator.notification.alert(message, null, title, 'OK');
+	beep();
+	vibrate();
     } else {
 	alert(title ? (title + ": " + message) : message);
     }
@@ -81,11 +83,11 @@ window.beep = function(repeat) {
     }
 }
 
-window.vibrate = function(milliseconds) {
+window.vibrate = function(ms) {
     if (navigator.notification) {
-	if (!repeat)
-	    repeat = 2500;
+	if (!ms)
+	    ms = 2500;
 
-	navigator.notification.vibrate(repeat)
+	navigator.notification.vibrate(ms)
     }
 }
